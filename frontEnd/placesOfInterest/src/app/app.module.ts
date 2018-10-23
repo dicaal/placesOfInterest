@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -13,7 +14,12 @@ import { RegisterPage } from '../pages/register/register';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
 import { AppProvider } from '../providers/app/app';
+import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
+import { LocationProvider } from '../providers/location/location';
+import { ConnectProvider } from '../providers/connect/connect';
+import { Network } from '@ionic-native/network';
 
 @NgModule({
   declarations: [
@@ -45,7 +51,12 @@ import { AppProvider } from '../providers/app/app';
     SplashScreen,
     LoginPage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AppProvider
+    AppProvider,
+    GoogleMapsProvider,
+    LocationProvider,
+    ConnectProvider,
+    Network,
+    Geolocation
   ]
 })
 export class AppModule {}
